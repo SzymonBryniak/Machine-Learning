@@ -1,0 +1,23 @@
+import pandas as pd 
+
+
+data = {'salaries':[70000, 60000, 52000],'age':[45,44,40]} 
+datatoscale = pd.DataFrame.from_dict(data)
+print(datatoscale)
+
+
+
+
+def standardization():
+  datatoscale['salaries'] = ( datatoscale['salaries'] - datatoscale['salaries'].mean() ) / datatoscale['salaries'].std()
+  datatoscale['age'] = ( datatoscale['salaries'] - datatoscale['salaries'].mean() ) / datatoscale['salaries'].std()
+  print(datatoscale)
+  return 
+
+def normalization():
+  datatoscale['salaries'] = (datatoscale['salaries'] - datatoscale['salaries'].min()) / (datatoscale['salaries'].max() - datatoscale['salaries'].min())
+  print(datatoscale)
+  return
+
+normalization()
+standardization()
